@@ -1,6 +1,10 @@
-# Create React Express App
+# BravoNato
+## About this App
+Upload a CSV file, the app will read the facets by column, then select the type of insights you want
 
-## About This Boilerplate
+
+
+## About This Boilerplatet
 
 This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
 
