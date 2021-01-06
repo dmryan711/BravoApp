@@ -5,6 +5,7 @@ import FacetDropdown from "../components/FacetDropdown";
 import ReportBar from "../components/ReportBar";
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
+import SubmitButton from '../components/SubmitButton';
 
 
 
@@ -28,6 +29,9 @@ class Home extends Component  {
                 
                 <p className="top-bumper"> Step 3: Select the type of visualization you want: </p>
                 <ReportBar></ReportBar>
+
+                <p className="top-bumper"> Step 4: Once you have done steps 1-3, hit it.</p>
+                <SubmitButton></SubmitButton>
                 
             </Jumbotron>
             </Container>
