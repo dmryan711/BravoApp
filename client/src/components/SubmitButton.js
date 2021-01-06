@@ -4,6 +4,8 @@ import Button from "react-bootstrap/Button";
 export default function SubmitButton() {
 
   return (
-    <Button variant="success">Show Report</Button>
+    <Button variant="primary" size="lg" block>
+    Submit Report
+  </Button>
   );
 }

@@ -5,7 +5,7 @@ class Uploader extends Component {
         return(
             <Form>
                 <Form.Group>
-                    <Form.File id="exampleFormControlFile1" label="Step 1: Upload Bravo Dump" />
+                    <Form.File id="exampleFormControlFile1" label="Step 1: Upload Bravo Dump" onChange={(e) => console.log("UPLOADED")} />
                 </Form.Group>
             </Form>
         )   
