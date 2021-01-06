@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import reportStateReducer from "./reportStateReducer";
+import fileUploadReducer from "./fileUploadReducer";
 export default combineReducers({
-  reportState : reportStateReducer
+  fileUpload : fileUploadReducer
 });
