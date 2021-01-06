@@ -5,7 +5,9 @@ import FacetDropdown from "../components/FacetDropdown";
 import ReportBar from "../components/ReportBar";
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
+import Image from 'react-bootstrap/Image';
 import SubmitButton from '../components/SubmitButton';
+import logo from '../images/logo_192x192.png';
 
 
 
@@ -17,7 +19,8 @@ class Home extends Component  {
 
             <Container className="p-3">
             <Jumbotron>
-            <h1 className="header">BravNato!</h1>
+            <h1 className="header">BravNado!</h1>
+                <Image className="mx-auto d-block img-fluid unlock-icon"src={logo} rounded />
                 <p className="header">
                     A Shark-nado of Bravo insights
                 </p>
