@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Dropdown from 'react-bootstrap/Dropdown';
 const FacetDropdown =({facets}) => {
     
+
         return(
             <Dropdown>
                     <Dropdown.Toggle id="dropdown-basic">
