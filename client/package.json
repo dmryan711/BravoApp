@@ -1,10 +1,11 @@
 {
-  "name": "mern",
+  "name": "Bravnado",
   "version": "0.1.0",
-  "description": "Mern Demo",
+  "description": "Bravnado",
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
+    "axios": "^0.21.1",
     "bootstrap": "^4.5.3",
     "react": "^16.6.3",
     "react-bootstrap": "^1.4.0",

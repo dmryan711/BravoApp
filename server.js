@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
+const fileUpload = require("./routes/api/fileUpload");
 const PORT = process.env.PORT || 3001;
 const app = express();
 
@@ -22,6 +23,10 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true })
 .catch(err => console.log(err));
 
 // Define API routes here
+app.use("/api/files",fileUpload);
+
+
+
 app.post("/api/test",(req,res) =>{
   const testName = req.body.testName;
 

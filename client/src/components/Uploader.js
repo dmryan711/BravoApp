@@ -1,17 +1,39 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Form from 'react-bootstrap/Form';
-import {changeFileUploadState} from '../actions/fileUploadChange';
+import {changeFileUploadState,changeFacetState} from '../actions/fileUploadChange';
+
+import axios from 'axios';
+
 class Uploader extends Component {
 
+    uploadFileToServer = (file) => {
+        axios.post("/api/files/upload",file)
+
+        .then(res =>{
+            console.log(res.data);
+            this.props.changeFileUploadState(
+                {
+                    fileName:file.name,
+                    isFileUploaded: true
+                }
+            );
+
+            this.props.changeFacetState(
+                {
+                    count:res.data.facets.length ,
+                    facets: res.data.facets
+                }
+            );
+        })
+        .catch(err =>{
+            console.log(err)
+        });
+    }
+
     fileUploaded = e => {
-        console.log("HI");
-        this.props.changeFileUploadState(
-            {
-                fileName:e.target.files[0].name,
-                isFileUploaded: true
-            }
-        );
+        console.log(e.target.files[0]);
+        this.uploadFileToServer(e.target.files[0]);
     }
 
     render(){
@@ -24,4 +46,4 @@ class Uploader extends Component {
         )   
     }
 }
-export default connect(null,{changeFileUploadState})(Uploader);
+export default connect(null,{changeFileUploadState,changeFacetState})(Uploader);
