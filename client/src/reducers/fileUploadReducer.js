@@ -1,10 +1,14 @@
 import {
-    FILE_UPLOAD_CHANGE
+    FILE_UPLOAD_CHANGE, FACET_SELECTION_CHANGE
   } from "../actions/types";
   const initialState = {
     fileUploadState : {
         fileName:"",
         isFileUploaded: false
+    },
+    facetSelectionState : {
+      count:0,
+      facets:[]
     }
   };
 
@@ -16,6 +20,12 @@ import {
           ...state,
           fileUploadState: action.payload
         };
+      case FACET_SELECTION_CHANGE:
+      console.log(action.payload);
+      return {
+        ...state,
+        facetSelectionState:action.payload
+      };
       default:
         return state;
     }
