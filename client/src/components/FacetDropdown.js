@@ -5,18 +5,13 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import {facetSelectionChange} from '../actions/facetSelectionChange';
 class FacetDropdown extends Component {
     handleClick = value => {
-       
-        
-        //<FacetSelection name = value></FacetSelection>
         this.props.facetSelectionChange(
             {
                 facet : value
             }
         )
     }
-   
     render(){
-        console.log(this.props.facetSelection);
         return(
 
             <Dropdown>
@@ -26,7 +21,7 @@ class FacetDropdown extends Component {
                     </Dropdown.Toggle> 
                      : 
                     <Dropdown.Toggle id="dropdown-basic">
-                    "Select a Facet"
+                        Select a Facet
                     </Dropdown.Toggle>
                      
                 }
@@ -46,14 +41,10 @@ class FacetDropdown extends Component {
 
 const mapStateToProps = (state) => {
     return {
-      facets: state.fileUpload.facetSelectionState.facets,
-      facetSelection: state.facetSelection.facetSelection.facet
+        facets: state.fileUpload.facetSelectionState.facets,
+        facetSelection: state.facetSelection.facetSelection.facet
     };
-  };
-
-       
-     
-
+};
 
 export default connect(mapStateToProps,{facetSelectionChange})(FacetDropdown);
 
