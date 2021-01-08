@@ -1,23 +1,27 @@
-import React from "react";
+import React, {Component} from "react";
 import ToggleButton from "react-bootstrap/ToggleButton";
 import ToggleButtonGroup from "react-bootstrap/ToggleButtonGroup";
 // import "bootstrap/dist/css/bootstrap.min.css";
-export default function ReportBar() {
-  const [value, setValue] = React.useState(2);
-  const handleChange = val => setValue(val);
-  return (
-    <ToggleButtonGroup
-      name="value"
-      type="radio"
-      value={value}
-      onChange={handleChange}
-    >
-      <ToggleButton value={1}>Word Bubble</ToggleButton>
-      <ToggleButton value={2}>Bar Chart</ToggleButton>
-      <ToggleButton value={3}>Potatoe Report</ToggleButton>
-    </ToggleButtonGroup>
-  );
+class ReportBar extends Component {
+//   const [value, setValue] = React.useState(2);
+//   const handleChange = val => setValue(val);
+    render(){
+        return(
+            <ToggleButtonGroup
+                name="value"
+                type="radio"
+                value={value}
+                onChange={handleChange}
+            >
+                <ToggleButton value={1}>Word Bubble</ToggleButton>
+                <ToggleButton value={2}>Bar Chart</ToggleButton>
+                <ToggleButton value={3}>Potatoe Report</ToggleButton>
+            </ToggleButtonGroup>
+        )
+    }
 }
+
+export default ReportBar;
 // import React, { Component } from "react";
 // import Form from 'react-bootstrap/Form';
 // import Col from 'react-bootstrap/Col';

@@ -36,7 +36,7 @@ class FacetDropdown extends Component {
                     </Dropdown.Menu>
                 </Dropdown>
         )   
-}
+    }
 }
 
 const mapStateToProps = (state) => {
