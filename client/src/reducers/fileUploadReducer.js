@@ -1,5 +1,5 @@
 import {
-    FILE_UPLOAD_CHANGE, FACET_SELECTION_CHANGE
+    FILE_UPLOAD_CHANGE, FACET_COLLECTION_CHANGE
   } from "../actions/types";
   const initialState = {
     fileUploadState : {
@@ -20,7 +20,7 @@ import {
           ...state,
           fileUploadState: action.payload
         };
-      case FACET_SELECTION_CHANGE:
+      case FACET_COLLECTION_CHANGE:
       console.log(action.payload);
       return {
         ...state,

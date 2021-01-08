@@ -1,43 +1,59 @@
-import React from "react";
+import React,{Component} from "react";
 import { connect } from 'react-redux';
 import Dropdown from 'react-bootstrap/Dropdown';
-const FacetDropdown =({facets}) => {
-    
-
+// import FacetSelection from './FacetSelection';
+import {facetSelectionChange} from '../actions/facetSelectionChange';
+class FacetDropdown extends Component {
+    handleClick = value => {
+       
+        
+        //<FacetSelection name = value></FacetSelection>
+        this.props.facetSelectionChange(
+            {
+                facet : value
+            }
+        )
+    }
+   
+    render(){
+        console.log(this.props.facetSelection);
         return(
-            <Dropdown>
-                    <Dropdown.Toggle id="dropdown-basic">
-                        Dropdown Button
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                    {facets && facets.map(facet => (
-                        <Dropdown.Item key = {facet} eventKey={facet}>{facet}</Dropdown.Item>
-                    ))}
-                    
 
-                        {/* <Dropdown.Item eventKey="1">Facet 1</Dropdown.Item>
-                        <Dropdown.Item eventKey="2">Facet 2</Dropdown.Item>
-                        <Dropdown.Item eventKey="3">Facet 3</Dropdown.Item> */}
+            <Dropdown>
+                {this.props.facetSelection ? 
+                    <Dropdown.Toggle variant="success" id="dropdown-basic">
+                    {this.props.facetSelection}
+                    </Dropdown.Toggle> 
+                     : 
+                    <Dropdown.Toggle id="dropdown-basic">
+                    "Select a Facet"
+                    </Dropdown.Toggle>
+                     
+                }
+                 
+                    
+                    <Dropdown.Menu>
+                    {this.props.facets && this.props.facets.map(facet => (
+                        <Dropdown.Item onClick={()=>{this.handleClick(facet)}}key = {facet} eventKey={facet}>{facet}
+                        </Dropdown.Item>
+
+                    ))}
                     </Dropdown.Menu>
                 </Dropdown>
         )   
 }
+}
+
+const mapStateToProps = (state) => {
+    return {
+      facets: state.fileUpload.facetSelectionState.facets,
+      facetSelection: state.facetSelection.facetSelection.facet
+    };
+  };
+
+       
+     
 
 
-    
+export default connect(mapStateToProps,{facetSelectionChange})(FacetDropdown);
 
-    // function mapStateToProps(state) {
-    //     console.log(state) // state
-    //     console.log(arguments[1]) // undefined
-    //   }
-
-      const mapStateToProps = (state) => {
-        return {
-          facets: state.fileUpload.facetSelectionState.facets
-        };
-      };
-
-
-export default connect(mapStateToProps)(FacetDropdown);
-
-//facets: state.fileUpload.facetSelectionState.facets

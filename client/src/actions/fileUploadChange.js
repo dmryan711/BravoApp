@@ -1,5 +1,5 @@
 import{
-    FILE_UPLOAD_CHANGE, FACET_SELECTION_CHANGE
+    FILE_UPLOAD_CHANGE, FACET_COLLECTION_CHANGE
 } from "./types";
 
 export const changeFileUploadState = fileUploadState => dispatch => {
@@ -14,7 +14,7 @@ export const changeFileUploadState = fileUploadState => dispatch => {
 export const changeFacetState = facets => dispatch => {
     console.log(facets);
     dispatch({
-        type: FACET_SELECTION_CHANGE,
+        type: FACET_COLLECTION_CHANGE,
         payload: facets
     });
 
