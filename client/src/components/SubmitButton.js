@@ -5,7 +5,7 @@ import { Container } from "react-bootstrap";
 class  SubmitButton extends Component {
     handleClick = () => {
         if(this.props.isFileUploaded && this.props.facets && this.props.facetSelection){
-            console.log("File is uploaded and there are facets and facet selection has been made");
+            console.log("File is uploaded and there are facets,facet selection has been made, and report is selected");
         }
     }
     render(){

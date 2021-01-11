@@ -1,27 +1,62 @@
 import React, {Component} from "react";
 import ToggleButton from "react-bootstrap/ToggleButton";
+import {connect} from "react-redux";
 import ToggleButtonGroup from "react-bootstrap/ToggleButtonGroup";
+import { Container } from "react-bootstrap";
+import {reportStateChange} from "../actions/reportStateChange";
 // import "bootstrap/dist/css/bootstrap.min.css";
 class ReportBar extends Component {
-//   const [value, setValue] = React.useState(2);
-//   const handleChange = val => setValue(val);
+  
+    handleChange = value => {
+        this.props.reportStateChange(
+            {
+                type : value
+            }
+        ) 
+    }    
+
     render(){
         return(
-            <ToggleButtonGroup
-                name="value"
+            <Container>
+                {this.props.isFileUploaded && this.props.facets && this.props.facetSelection ?
+                <ToggleButtonGroup
+                name="report"
                 type="radio"
-                value={value}
-                onChange={handleChange}
-            >
-                <ToggleButton value={1}>Word Bubble</ToggleButton>
-                <ToggleButton value={2}>Bar Chart</ToggleButton>
-                <ToggleButton value={3}>Potatoe Report</ToggleButton>
+                value={this.props.reportType}
+                onChange={this.handleChange}
+                >
+                    <ToggleButton value={1}>Word Bubble</ToggleButton>
+                    <ToggleButton value={2}>Bar Chart</ToggleButton>
+                    <ToggleButton value={3}>Potatoe Report</ToggleButton>
             </ToggleButtonGroup>
+            :
+
+                <ToggleButtonGroup
+                    name="report"
+                    type="radio"
+                >
+                    <ToggleButton disabled = "true">Word Bubble</ToggleButton>
+                    <ToggleButton disabled = "true">Bar Chart</ToggleButton>
+                    <ToggleButton disabled = "true">Potatoe Report</ToggleButton>
+                </ToggleButtonGroup>
+                
+            }
+            </Container>
+            
         )
     }
 }
 
-export default ReportBar;
+const mapStateToProps = (state) => {
+    return {
+        isFileUploaded: state.fileUpload.fileUploadState.isFileUploaded,
+        facets: state.fileUpload.facetSelectionState.facets,
+        facetSelection: state.facetSelection.facetSelection.facet,
+        reportType : state.report.report.type
+    };
+};
+
+export default connect(mapStateToProps,{reportStateChange})(ReportBar);
 // import React, { Component } from "react";
 // import Form from 'react-bootstrap/Form';
 // import Col from 'react-bootstrap/Col';
